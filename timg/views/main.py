@@ -1,4 +1,4 @@
-import timg, hashlib, piexif, random, string # base64, hashlib
+import timg, hashlib, piexif, random, string, base64 # hashlib
 from werkzeug.utils import secure_filename
 from flask import send_from_directory
 
