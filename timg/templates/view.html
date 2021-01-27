@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>image</title>
+
+		<meta charset="utf-8" />
+		{% if timer != "0" %}
+			<meta http-equiv="refresh" content="{{timer}}">
+		{% endif %}
+		<link rel="shortcut icon" href="favicon.ico" />
+		<style>
+			html, body{
+				margin: 0 auto;
+				text-align: center;
+			}
+			.img {
+				background-image: url('data:image/jpeg;base64,{{ img_data }}');
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				width: 100vw;
+				height: 100vh;
+			}
+			.timer{
+				font-weight: bold;
+				font-family: 'Courier New', Courier, monospace;
+				font-size: 16pt;
+				line-height: 90%;
+				position: absolute;
+				padding: 4px;
+				margin: 6px;
+				padding-bottom: 0px;
+				background-color: yellow;
+				border: 4px dashed red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			{% if timer != "0" %}
+			<div id="countdown" class="timer">{{timer|safe}}</div>
+			{% endif %}
+			<div class="img" id="img"></div>
+		</div>
+	</body>
+	<!-- <script>
+		// var image = "data:image/jpeg;base64," + location.hash.substr(1);
+		// document.getElementById("img").style.backgroundImage = "url('"+ image + "{{ img_data }}" + "')"; 
+	</script> -->
+	{% if timer != "0" %}
+	<script>
+		var seconds = {{timer}}, $seconds = document.querySelector('#countdown');
+		(function countdown() {
+			$seconds.textContent = seconds
+			if(seconds --> 0){
+				setTimeout(countdown, 1000);
+			}else{
+				location.reload(true);
+			}
+		})();
+	</script>
+	{% endif %}
+</html>

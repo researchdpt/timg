@@ -1,0 +1,6 @@
+flask
+requests
+humanize
+Pillow
+piexif
+uwsgi

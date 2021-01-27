@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>loading...</title>
+
+		<meta charset="utf-8" />
+		<meta http-equiv="refresh" content="0; url='{{image_url}}'">
+		<link rel="shortcut icon" href="favicon.ico" />
+		<style>
+			html, body{
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body onclick="window.location.replace('{{image_url}}')">
+		<div class="container">
+			loading <a href="{{image_url}}'" style="font-size: 16pt;">{{image_url}}</a>...
+		</div>
+    </body>
+    <script>
+        window.location.replace("{{image_url}}");
+    </script>
+</html>
